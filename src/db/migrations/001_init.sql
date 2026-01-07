@@ -45,3 +45,9 @@ CREATE TABLE blocks (
     PRIMARY KEY (blocker_id, blocked_id)
 );
 
+CREATE TABLE sessions (
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER REFERENCES users(id),
+  token TEXT NOT NULL,
+  expires_at TIMESTAMP NOT NULL
+);
