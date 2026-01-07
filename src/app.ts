@@ -1,12 +1,13 @@
 // src/app.ts
 import express from "express";
+import type { Request, Response } from "express";
 import { verifyToken } from "./crypto/jwt";
 
 export const app = express();
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
+app.get("/", (req: Request, res: Response) => {
   res.send("Backend is running");
   const auth = req.headers.authorization;
   if (!auth) return res.sendStatus(401);
